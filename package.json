@@ -1,6 +1,6 @@
 {
   "name": "@travishorn/diceware",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Cryptographically-secure electronic implementation of the Diceware Passphrase method.",
   "main": "index.js",
   "scripts": {
