@@ -1,6 +1,6 @@
 # Diceware JS
 
-Cryptographically-secure electronic implementation of the Diceware Passphrase method in JavaScript.
+Cryptographically-secure electronic implementation of the [Diceware Passphrase method](http://world.std.com/~reinhold/diceware.html) in JavaScript.
 
 ## Installation
 
