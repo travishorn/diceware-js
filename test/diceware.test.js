@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-const diceware = require('./');
+const diceware = require('../');
 
 test('Generates a passphrase', async () => {
   expect(typeof await diceware()).toBe('string');
