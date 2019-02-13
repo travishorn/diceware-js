@@ -1,0 +1,25 @@
+{
+  "name": "@travishorn/diceware",
+  "version": "0.1.0",
+  "description": "Cryptographically-secure electronic implementation of the Diceware Passphrase method.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "diceware",
+    "passphrase",
+    "password",
+    "security",
+    "crypto",
+    "cryptography"
+  ],
+  "author": "Travis Horn <travis@travishorn.com> (https://travishorn.com)",
+  "license": "MIT",
+  "dependencies": {
+    "random-number-csprng": "^1.0.2"
+  },
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
