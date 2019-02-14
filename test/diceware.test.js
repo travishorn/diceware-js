@@ -43,3 +43,17 @@ test('Throws error on unknown list', async () => {
     expect(typeof err).toBe('object');
   }
 });
+
+test('Throws error on unsupported word length', async () => {
+  try {
+    await diceware({ words: 'foo' });
+  } catch (err) {
+    expect(typeof err).toBe('object');
+  }
+
+  try {
+    await diceware({ words: -1 });
+  } catch (err) {
+    expect(typeof err).toBe('object');
+  }
+});
