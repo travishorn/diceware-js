@@ -3,6 +3,7 @@ const lists = require('./lists');
 
 const processOptions = (...rest) => {
   const options = Object.assign({}, ...rest);
+  const outputTypes = ['array', 'string'];
 
   options.words = parseInt(options.words, 10);
   options.list = lists.find(l => l.name === options.list);
@@ -13,6 +14,8 @@ const processOptions = (...rest) => {
     const listNames = lists.map(l => l.name).join(', ');
     throw new Error(`No list exists with name: ${options.list}. Please choose from: ${listNames}`);
   }
+
+  if (!outputTypes.includes(options.output)) throw new Error(`Unsupported output type: ${options.output}. Please choose from: ${outputTypes.join(', ')}`);
 
   return options;
 };
@@ -31,6 +34,7 @@ const generate = async (passedOptions) => {
   const defaults = {
     words: 5,
     list: 'Arnold G. Reinhold',
+    output: 'string',
   };
 
   const options = processOptions(defaults, passedOptions);
@@ -43,9 +47,14 @@ const generate = async (passedOptions) => {
 
   const rolls = await Promise.all(prmRolls);
 
-  const passphrase = rolls.map(roll => options.list.list[roll.join('')]).join(' ');
+  const passphrase = rolls.map(roll => options.list.list[roll.join('')]);
 
-  return passphrase;
+  switch (options.output) {
+    case 'array':
+      return passphrase;
+    default:
+      return passphrase.join(' ');
+  }
 };
 
 module.exports = generate;

@@ -36,6 +36,14 @@ test('Generates a passphrase from EFF Long list', async () => {
   expect(typeof await diceware({ list: 'EFF Long' })).toBe('string');
 });
 
+test('Outputs an string', async () => {
+  expect(typeof await diceware({ output: 'string' })).toBe('string');
+});
+
+test('Outputs an array', async () => {
+  expect(Array.isArray(await diceware({ output: 'array' }))).toBe(true);
+});
+
 test('Throws error on unknown list', async () => {
   try {
     await diceware({ list: 'foo' });
@@ -53,6 +61,14 @@ test('Throws error on unsupported word length', async () => {
 
   try {
     await diceware({ words: -1 });
+  } catch (err) {
+    expect(typeof err).toBe('object');
+  }
+});
+
+test('Throws error on unknown output type', async () => {
+  try {
+    await diceware({ output: 'foo' });
   } catch (err) {
     expect(typeof err).toBe('object');
   }

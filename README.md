@@ -20,38 +20,24 @@ Cryptographically-secure electronic implementation of the [Diceware Passphrase m
 
 ## Usage
 
-### Promise-based
+This package is [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)-based.
 
 ```javascript
 const diceware = require('@travishorn/diceware');
 
-diceware().then((passphrase) => {
-  console.log(passphrase);
-});
+diceware()
+  .then((passphrase) => {
+    console.log(passphrase);
+  });
 
 // ought amigo dow hebe send
-```
-
-### Async/await
-
-```javascript
-const diceware = require('@travishorn/diceware');
-
-const generate = async () => {
-  const passphrase = await diceware();
-  return passphrase;
-};
-
-console.log(generate());
-
-// census earl banal hn lars
 ```
 
 ## Options
 
 ### words
 
-Set the number of words to be used in the passphrase.
+The number of words to be used in the passphrase.
 
 Default: `5`
 
@@ -62,7 +48,7 @@ diceware({ words: 8 });
 
 ### list
 
-Set which diceware list from which to pull words.
+Which diceware list from which to pull words.
 
 Default: `'Arnold G. Reinhold'`
 
@@ -79,7 +65,25 @@ Supported lists:
 - `EFF Short`
 - `EFF Long`
 
+### output
+
+The type of output.
+
+Default: `'string'`
+
+```javascript
+diceware({ output: 'array' });
+// [ 'laze', 'sx', 'dope', 'cagey', 'papaw' ]
+```
+
+Supported types:
+
+- `array`
+- `string`
+
 ## Testing
+
+Tests are in the `test` directory. Run them with:
 
 ```
 > npm test
