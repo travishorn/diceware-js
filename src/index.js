@@ -4,11 +4,13 @@ const lists = require('./lists');
 const processOptions = (...rest) => {
   const options = Object.assign({}, ...rest);
   const outputTypes = ['array', 'string'];
+  const words = parseInt(options.words, 10);
 
-  options.words = parseInt(options.words, 10);
+  if (Number.isNaN(words) || words <= 0) throw new Error(`Unsupported number of words: ${options.words}. Please choose an integer greater than 0.`);
+
+  options.words = words;
+
   options.list = lists.find(l => l.name === options.list);
-
-  if (options.words <= 0) throw new Error(`Unsupported number of words: ${options.words}. Please choose an integer greater than 0.`);
 
   if (typeof options.list === 'undefined') {
     const listNames = lists.map(l => l.name).join(', ');

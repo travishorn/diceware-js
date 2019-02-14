@@ -45,6 +45,8 @@ test('Outputs an array', async () => {
 });
 
 test('Throws error on unknown list', async () => {
+  expect.assertions(1);
+
   try {
     await diceware({ list: 'foo' });
   } catch (err) {
@@ -53,6 +55,8 @@ test('Throws error on unknown list', async () => {
 });
 
 test('Throws error on unsupported word length', async () => {
+  expect.assertions(2);
+
   try {
     await diceware({ words: 'foo' });
   } catch (err) {
@@ -67,6 +71,8 @@ test('Throws error on unsupported word length', async () => {
 });
 
 test('Throws error on unknown output type', async () => {
+  expect.assertions(1);
+
   try {
     await diceware({ output: 'foo' });
   } catch (err) {
