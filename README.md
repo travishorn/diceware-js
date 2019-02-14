@@ -4,7 +4,19 @@ Cryptographically-secure electronic implementation of the [Diceware Passphrase m
 
 ## Installation
 
-npm module coming soon.
+### Production
+
+```
+> npm i @travishorn/diceware
+```
+
+### Development
+
+```
+> git clone https://github.com/travishorn/diceware-js.git
+> cd diceware-js
+> npm i
+```
 
 ## Usage
 
@@ -16,6 +28,8 @@ const diceware = require('@travishorn/diceware');
 diceware().then((passphrase) => {
   console.log(passphrase);
 });
+
+// ought amigo dow hebe send
 ```
 
 ### Async/await
@@ -29,11 +43,47 @@ const generate = async () => {
 };
 
 console.log(generate());
+
+// census earl banal hn lars
 ```
 
 ## Options
 
-Coming soon.
+### words
+
+Set the number of words to be used in the passphrase.
+
+Default: `5`
+
+```javascript
+diceware({ words: 8 });
+// verne foss tog soup lawn legion hyde krebs
+```
+
+### list
+
+Set which diceware list from which to pull words.
+
+Default: `'Arnold G. Reinhold'`
+
+```javascript
+diceware({ list: 'EFF Short' });
+// ditto gem evidence zestfully septum
+```
+
+Supported lists:
+
+- `Alan Beale`
+- `Arnold G. Reinhold`
+- `EFF General Short`
+- `EFF Short`
+- `EFF Long`
+
+## Testing
+
+```
+> npm test
+```
 
 ## License
 
