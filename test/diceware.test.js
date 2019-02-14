@@ -1,81 +1,48 @@
-/* eslint-env jest */
-
+const test = require('ava');
 const diceware = require('../');
 
-test('Generates a passphrase', async () => {
-  expect(typeof await diceware()).toBe('string');
+test('Generates a passphrase', async (t) => {
+  const passphrase = await diceware();
+
+  t.is(typeof passphrase, 'string');
+  t.is(passphrase.split(' ').length, 5);
 });
 
-test('Generates a passphrase containing specified number of words', async () => {
+test('Generates a passphrase containing specified number of words', async (t) => {
   const one = await diceware({ words: 1 });
   const two = await diceware({ words: 2 });
   const three = await diceware({ words: 3 });
 
-  expect(one.split(' ').length).toBe(1);
-  expect(two.split(' ').length).toBe(2);
-  expect(three.split(' ').length).toBe(3);
+  t.is(one.split(' ').length, 1);
+  t.is(two.split(' ').length, 2);
+  t.is(three.split(' ').length, 3);
 });
 
-test('Generates a passphrase from Alan Beale list', async () => {
-  expect(typeof await diceware({ list: 'Alan Beale' })).toBe('string');
+test('Generates a passphrase from specific lists', async (t) => {
+  t.is(typeof await diceware({ list: 'Alan Beale' }), 'string');
+  t.is(typeof await diceware({ list: 'Arnold G. Reinhold' }), 'string');
+  t.is(typeof await diceware({ list: 'EFF General Short' }), 'string');
+  t.is(typeof await diceware({ list: 'EFF Short' }), 'string');
+  t.is(typeof await diceware({ list: 'EFF Long' }), 'string');
 });
 
-test('Generates a passphrase from Arnold G. Reinhold list', async () => {
-  expect(typeof await diceware({ list: 'Arnold G. Reinhold' })).toBe('string');
+test('Outputs an string', async (t) => {
+  t.is(typeof await diceware({ output: 'string' }), 'string');
 });
 
-test('Generates a passphrase from EFF General Short list', async () => {
-  expect(typeof await diceware({ list: 'EFF General Short' })).toBe('string');
+test('Outputs an array', async (t) => {
+  t.is(Array.isArray(await diceware({ output: 'array' })), true);
 });
 
-test('Generates a passphrase from EFF Short list', async () => {
-  expect(typeof await diceware({ list: 'EFF Short' })).toBe('string');
+test('Throws error on unknown list', async (t) => {
+  await t.throwsAsync(diceware({ list: 'foo' }));
 });
 
-test('Generates a passphrase from EFF Long list', async () => {
-  expect(typeof await diceware({ list: 'EFF Long' })).toBe('string');
+test('Throws error on unsupported word length', async (t) => {
+  await t.throwsAsync(diceware({ words: 'foo' }));
+  await t.throwsAsync(diceware({ words: -1 }));
 });
 
-test('Outputs an string', async () => {
-  expect(typeof await diceware({ output: 'string' })).toBe('string');
-});
-
-test('Outputs an array', async () => {
-  expect(Array.isArray(await diceware({ output: 'array' }))).toBe(true);
-});
-
-test('Throws error on unknown list', async () => {
-  expect.assertions(1);
-
-  try {
-    await diceware({ list: 'foo' });
-  } catch (err) {
-    expect(typeof err).toBe('object');
-  }
-});
-
-test('Throws error on unsupported word length', async () => {
-  expect.assertions(2);
-
-  try {
-    await diceware({ words: 'foo' });
-  } catch (err) {
-    expect(typeof err).toBe('object');
-  }
-
-  try {
-    await diceware({ words: -1 });
-  } catch (err) {
-    expect(typeof err).toBe('object');
-  }
-});
-
-test('Throws error on unknown output type', async () => {
-  expect.assertions(1);
-
-  try {
-    await diceware({ output: 'foo' });
-  } catch (err) {
-    expect(typeof err).toBe('object');
-  }
+test('Throws error on unknown output type', async (t) => {
+  await t.throwsAsync(diceware({ output: 'foo' }));
 });
