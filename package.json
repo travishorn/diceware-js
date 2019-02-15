@@ -17,6 +17,7 @@
   "author": "Travis Horn <travis@travishorn.com> (https://travishorn.com)",
   "license": "MIT",
   "dependencies": {
+    "joi": "^14.3.1",
     "random-number-csprng": "^1.0.2"
   },
   "devDependencies": {
