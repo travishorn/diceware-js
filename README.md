@@ -89,6 +89,20 @@ Tests are in the `test` directory. Run them with:
 > npm test
 ```
 
+## Linting
+
+Lint all files.
+
+```
+> npm run lint
+```
+
+Automatically fix some problems.
+
+```
+> npm run lint:fix
+```
+
 ## License
 
 The MIT License

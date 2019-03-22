@@ -1,7 +1,13 @@
 module.exports = {
-  'extends': 'plugin:prettier/recommended',
-  'env': { 'node': true },
-  'parserOptions': {
-    'ecmaVersion': 8,
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
   },
+  "parserOptions": {
+    "ecmaVersion": 8
+  }
 };
