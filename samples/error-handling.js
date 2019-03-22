@@ -1,4 +1,4 @@
-const diceware = require('../');
+const diceware = require("../");
 
 (async () => {
   try {

@@ -1,6 +1,6 @@
-const randomNumber = require('random-number-csprng');
+const randomNumber = require("random-number-csprng");
 
-const rolls = (num) => {
+const rolls = num => {
   const result = [];
 
   while (result.length < num) {
@@ -10,11 +10,11 @@ const rolls = (num) => {
   return Promise.all(result);
 };
 
-const sets = async (options) => {
+const sets = async options => {
   const prmSets = [];
 
   while (prmSets.length < options.sets) {
-    prmSets.push((rolls(options.rollsEach)));
+    prmSets.push(rolls(options.rollsEach));
   }
 
   const result = await Promise.all(prmSets);

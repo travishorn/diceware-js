@@ -1,6 +1,6 @@
-const diceware = require('../');
+const diceware = require("../");
 
 (async () => {
-  const passphrase = await diceware({ output: 'array' });
+  const passphrase = await diceware({ output: "array" });
   console.log(passphrase);
 })();
