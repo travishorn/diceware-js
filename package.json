@@ -4,7 +4,8 @@
   "description": "Cryptographically-secure electronic implementation of the Diceware Passphrase method.",
   "main": "index.js",
   "scripts": {
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "lint": "eslint **/*.js"
   },
   "keywords": [
     "diceware",
@@ -22,6 +23,9 @@
   },
   "devDependencies": {
     "ava": "^1.2.1",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
     "nyc": "^13.3.0"
   }
 }
