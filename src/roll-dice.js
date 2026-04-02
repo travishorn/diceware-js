@@ -1,6 +1,6 @@
-const randomNumber = require("random-number-csprng");
+import randomNumber from "random-number-csprng";
 
-const rolls = num => {
+const rolls = (num) => {
   const result = [];
 
   while (result.length < num) {
@@ -10,7 +10,7 @@ const rolls = num => {
   return Promise.all(result);
 };
 
-const sets = async options => {
+const sets = async (options) => {
   const prmSets = [];
 
   while (prmSets.length < options.sets) {
@@ -21,4 +21,4 @@ const sets = async options => {
   return result;
 };
 
-module.exports = sets;
+export default sets;

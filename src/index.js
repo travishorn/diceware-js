@@ -1,13 +1,13 @@
-const processOptions = require("./process-options");
-const rollDice = require("./roll-dice");
+import processOptions from "./process-options.js";
+import rollDice from "./roll-dice.js";
 
-const generate = async passedOptions => {
+const generate = async (passedOptions) => {
   const options = processOptions(passedOptions);
   const rolls = await rollDice({
     sets: options.words,
-    rollsEach: options.list.diceLength
+    rollsEach: options.list.diceLength,
   });
-  const passphrase = rolls.map(roll => options.list.list[roll.join("")]);
+  const passphrase = rolls.map((roll) => options.list.list[roll.join("")]);
 
   switch (options.output) {
     case "array":
@@ -17,4 +17,4 @@ const generate = async passedOptions => {
   }
 };
 
-module.exports = generate;
+export default generate;

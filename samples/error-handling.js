@@ -1,4 +1,4 @@
-const diceware = require("../");
+import diceware from "../index.js";
 
 (async () => {
   try {

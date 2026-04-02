@@ -1,5 +1,5 @@
-module.exports = {
-  "rules": {
-    "no-console": 0
-  }
+export default {
+  rules: {
+    "no-console": 0,
+  },
 };
