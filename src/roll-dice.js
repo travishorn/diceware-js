@@ -23,16 +23,14 @@ function rolls(num) {
  * @param {object} options - The roll configuration.
  * @param {number} options.sets - The number of independent dice roll sets to generate.
  * @param {number} options.rollsEach - The number of individual dice rolled per set.
- * @returns {Promise<number[][]>} A promise that resolves to an array of dice roll sets,
- *   where each inner array contains integers between 1 and 6 inclusive.
+ * @returns {number[][]} An array of dice roll sets, where each inner array contains integers between 1 and 6 inclusive.
  */
-export default async function sets(options) {
+export default function sets(options) {
   const prmSets = [];
 
   while (prmSets.length < options.sets) {
     prmSets.push(rolls(options.rollsEach));
   }
 
-  const result = await Promise.all(prmSets);
-  return result;
+  return prmSets;
 }

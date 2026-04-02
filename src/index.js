@@ -6,14 +6,14 @@ import rollDice from "./roll-dice.js";
  *
  * @overload
  * @param {{ words?: number, list?: string, output?: "string" } | null | undefined} [passedOptions]
- * @returns {Promise<string>}
+ * @returns {string}
  */
 /**
  * Generates a cryptographically-secure diceware passphrase as an array of words.
  *
  * @overload
  * @param {{ words?: number, list?: string, output: "array" }} passedOptions
- * @returns {Promise<string[]>}
+ * @returns {string[]}
  */
 /**
  * Generates a cryptographically-secure diceware passphrase.
@@ -26,14 +26,13 @@ import rollDice from "./roll-dice.js";
  *   Optional configuration for passphrase generation.
  *   Valid properties: `words` (number, default 5), `list` (string, default `"Arnold G. Reinhold"`),
  *   `output` (`"string"` | `"array"`, default `"string"`).
- * @returns {Promise<string | string[]>} A promise that resolves to the generated passphrase
- *   as a space-separated string (default) or an array of words.
+ * @returns {string | string[]} The generated passphrase as a space-separated string (default) or an array of words.
  * @throws {import('joi').ValidationError} Thrown when any provided option fails validation.
  */
-export default async function generate(passedOptions) {
+export default function generate(passedOptions) {
   const options = processOptions(passedOptions);
 
-  const rolls = await rollDice({
+  const rolls = rollDice({
     sets: options.words,
     rollsEach: options.list.diceLength
   });

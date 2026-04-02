@@ -21,13 +21,10 @@ npm install
 
 ## Usage
 
-This package is
-[promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)-based.
-
 ```javascript
 import diceware from "@travishorn/diceware";
 
-const passphrase = await diceware();
+const passphrase = diceware();
 console.log(passphrase);
 
 // ought amigo dow hebe send

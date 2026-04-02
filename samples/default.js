@@ -1,4 +1,4 @@
 import diceware from "../src/index.js";
 
-const passphrase = await diceware();
+const passphrase = diceware();
 console.log(passphrase);
