@@ -1,16 +1,16 @@
-import randomNumber from "random-number-csprng";
+import { randomInt } from "node:crypto";
 
-const rolls = (num) => {
+const rolls = num => {
   const result = [];
 
   while (result.length < num) {
-    result.push(randomNumber(1, 6));
+    result.push(randomInt(1, 7));
   }
 
-  return Promise.all(result);
+  return result;
 };
 
-const sets = async (options) => {
+const sets = async options => {
   const prmSets = [];
 
   while (prmSets.length < options.sets) {
