@@ -1,6 +1,4 @@
-import diceware from "../index.js";
+import diceware from "../src/index.js";
 
-(async () => {
-  const passphrase = await diceware();
-  console.log(passphrase);
-})();
+const passphrase = await diceware();
+console.log(passphrase);

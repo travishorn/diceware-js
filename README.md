@@ -27,9 +27,8 @@ This package is
 ```javascript
 import diceware from "@travishorn/diceware";
 
-diceware().then((passphrase) => {
-  console.log(passphrase);
-});
+const passphrase = await diceware();
+console.log(passphrase);
 
 // ought amigo dow hebe send
 ```
@@ -98,17 +97,17 @@ Lint all files.
 npm run lint
 ```
 
-Automatically fix some problems.
+Check types.
 
 ```
-npm run lint:fix
+npm run lint:types
 ```
 
 ## License
 
 The MIT License
 
-Copyright 2019 Travis Horn
+Copyright 2026 Travis Horn
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
