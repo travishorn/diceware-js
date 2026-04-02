@@ -24,6 +24,14 @@
   ],
   "author": "Travis Horn <travis@travishorn.com> (https://travishorn.com)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/travishorn/diceware-js"
+  },
+  "bugs": {
+    "url": "https://github.com/travishorn/diceware-js/issues"
+  },
+  "homepage": "https://github.com/travishorn/diceware-js#readme",
   "dependencies": {
     "joi": "^18.1.1",
     "random-number-csprng": "^1.0.2"
