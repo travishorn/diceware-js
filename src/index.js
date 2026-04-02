@@ -34,10 +34,10 @@ export default function generate(passedOptions) {
 
   const rolls = rollDice({
     sets: options.words,
-    rollsEach: options.list.diceLength
+    rollsEach: options.list.diceLength,
   });
 
-  const passphrase = rolls.map(roll => options.list.list[roll.join("")]);
+  const passphrase = rolls.map((roll) => options.list.list[roll.join("")]);
 
   switch (options.output) {
     case "array":

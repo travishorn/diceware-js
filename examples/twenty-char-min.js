@@ -8,7 +8,7 @@ import diceware from "../src/index.js";
 function generate() {
   const p = diceware({
     words: 3,
-    list: "EFF Long"
+    list: "EFF Long",
   });
 
   return p.length >= 20 ? p : generate();

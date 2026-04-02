@@ -5,18 +5,8 @@ method](https://theworld.com/~reinhold/diceware.html) in JavaScript.
 
 ## Installation
 
-### Production
-
 ```
 npm install @travishorn/diceware
-```
-
-### Development
-
-```
-git clone https://github.com/travishorn/diceware-js.git
-cd diceware-js
-npm install
 ```
 
 ## Usage
@@ -30,9 +20,11 @@ console.log(passphrase);
 // ought amigo dow hebe send
 ```
 
+More examples can be found in the [./examples](./examples/) directory.
+
 ## Options
 
-### words
+### `words`
 
 The number of words to be used in the passphrase.
 
@@ -43,7 +35,7 @@ diceware({ words: 8 });
 // verne foss tog soup lawn legion hyde krebs
 ```
 
-### list
+### `list`
 
 Which diceware list from which to pull words.
 
@@ -56,13 +48,13 @@ diceware({ list: "EFF Short" });
 
 Supported lists:
 
-- `Alan Beale`
-- `Arnold G. Reinhold`
-- `EFF General Short`
-- `EFF Short`
-- `EFF Long`
+- `'Alan Beale'`
+- `'Arnold G. Reinhold'`
+- `'EFF General Short'`
+- `'EFF Short'`
+- `'EFF Long'`
 
-### output
+### `output`
 
 The type of output.
 
@@ -75,28 +67,48 @@ diceware({ output: "array" });
 
 Supported types:
 
-- `array`
-- `string`
+- `'array'`
+- `'string'`
+
+## Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/travishorn/diceware-js
+```
+
+Change into the repository directory:
+
+```bash
+cd diceware-js
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
 
 ## Testing
 
 Tests are in the `test` directory. Run them with:
 
-```
+```bash
 npm test
 ```
 
 ## Linting
 
-Lint all files.
+Lint all files:
 
-```
+```bash
 npm run lint
 ```
 
-Check types.
+Check types:
 
-```
+```bash
 npm run lint:types
 ```
 
